@@ -27,7 +27,7 @@ function LiveTimeComponent() {
   }, []);
 
   return (
-    <span className="text-sm font-medium text-zinc-400 tabular-nums">
+    <span className="text-2xl font-semibold text-white tabular-nums">
       {lagosTime ?? "..."}
     </span>
   );

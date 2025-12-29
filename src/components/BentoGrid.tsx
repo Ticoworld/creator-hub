@@ -14,6 +14,7 @@ import Image from "next/image";
 import BentoCard from "./BentoCard";
 import TweetCard from "./bento/TweetCard";
 import GithubGraph from "./bento/GithubGraph";
+import { LiveTime } from "./ui/LiveTime";
 import { cn } from "@/lib/utils";
 import { useContactModal } from "@/hooks/use-contact-modal";
 
@@ -115,34 +116,14 @@ export default function BentoGrid() {
             </div>
           </BentoCard>
 
-          {/* Card 2: Map (2x1) */}
+          {/* Card 2: Timezone (2x1) */}
           <BentoCard colSpan={2} className="bg-zinc-900/50">
-            <div className="relative flex h-full items-end overflow-hidden p-6">
-              {/* Map Background */}
-              <Image
-                src="/images/map.png"
-                alt="Location Map"
-                fill
-                className="absolute inset-0 object-cover opacity-70 brightness-110 contrast-125"
-              />
-              {/* Subtle gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-zinc-900/60 to-transparent" />
-
-              {/* Glowing Pin Dot - centered */}
-              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
-                <span className="relative flex h-4 w-4">
-                  <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
-                  <span className="relative inline-flex h-4 w-4 rounded-full bg-emerald-500 shadow-[0_0_16px_rgba(16,185,129,0.6)]"></span>
-                </span>
-              </div>
-
-              {/* Location text - Bottom Left, clean */}
-              <span
-                className="relative z-10 text-sm font-medium text-white"
-                style={{ textShadow: "0 2px 8px rgba(0,0,0,0.5)" }}
-              >
-                Onitsha, Nigeria
+            <div className="flex h-full flex-col items-center justify-center gap-1">
+              <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+                Local Time
               </span>
+              <LiveTime />
+              <span className="text-xs text-zinc-600">UTC+1</span>
             </div>
           </BentoCard>
 
@@ -232,26 +213,28 @@ export default function BentoGrid() {
           <BentoCard
             colSpan={2}
             rowSpan={2}
-            className="group relative overflow-hidden bg-zinc-900/50"
+            className="group relative overflow-hidden bg-zinc-900/50 cursor-pointer"
           >
+            <a
+              href="/work"
+              className="absolute inset-0 z-20"
+              aria-label="View all work"
+            />
             <Image
               src="/images/project.png"
               alt="Featured Project"
               fill
-              className="object-cover transition-transform duration-500 group-hover:scale-105"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent" />
 
-            {/* Arrow button - Top Right */}
-            <a
-              href="/work"
-              className="absolute right-4 top-4 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 backdrop-blur-md transition-all duration-300 hover:bg-white/20 hover:scale-110"
-            >
+            {/* Arrow indicator - Top Right */}
+            <div className="absolute right-4 top-4 z-10 flex h-10 w-10 items-center justify-center rounded-full bg-black/30 backdrop-blur-md transition-all duration-300 group-hover:scale-110 group-hover:bg-white/20">
               <ArrowUpRight className="h-5 w-5 text-white" />
-            </a>
+            </div>
 
             {/* Project info - Bottom Left */}
-            <div className="absolute bottom-0 left-0 right-0 p-6">
+            <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
               <h3 className="text-lg font-bold text-white">BankiiSwap</h3>
               <p className="mt-0.5 text-sm text-zinc-300">
                 DeFi Heart of the Bankii Ecosystem
