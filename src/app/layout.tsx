@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://timothychinecheremorichi.vercel.app"),
+  metadataBase: new URL("https://www.timothychinecherem.com"),
   title: "Timothy Chinecherem | Digital Architect",
   description:
     "Building products that blend beautiful design with solid engineering. Full-stack developer focused on premium experiences.",
@@ -23,14 +23,14 @@ export const metadata: Metadata = {
     title: "Timothy Chinecherem | Digital Architect",
     description:
       "Building products that blend beautiful design with solid engineering.",
-    url: "https://tico.dev",
+    url: "https://www.timothychinecherem.com",
     siteName: "Timothy Chinecherem",
     images: [
       {
-        url: "/images/stack/laptop-void.jpg",
+        url: "/images/avatar.jpg",
         width: 1200,
         height: 630,
-        alt: "Timothy Chinecherem Workspace",
+        alt: "Timothy Chinecherem",
       },
     ],
     locale: "en_US",
@@ -41,7 +41,7 @@ export const metadata: Metadata = {
     title: "Timothy Chinecherem",
     description:
       "Building products that blend beautiful design with solid engineering.",
-    images: ["/images/stack/laptop-void.jpg"],
+    images: ["/images/avatar.jpg"],
   },
 };
 
