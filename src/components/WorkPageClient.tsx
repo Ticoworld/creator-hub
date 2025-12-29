@@ -29,51 +29,61 @@ export default function WorkPageClient() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[350px] md:auto-rows-[400px]">
           {/* ROW 1 */}
 
-          {/* 1. BankiiSwap (Desktop 2-col) */}
+          {/* 1. LegalLease (Desktop 2-col) - FEATURED */}
+          {getProject("legallease") && (
+            <ProjectCard
+              project={getProject("legallease")!}
+              index={0}
+              className="col-span-1 md:col-span-2 row-span-1"
+              onClick={() => setSelectedId("legallease")}
+            />
+          )}
+
+          {/* 2. BankiiSwap (Desktop 2-col) */}
           {getProject("bankiiswap") && (
             <ProjectCard
               project={getProject("bankiiswap")!}
-              index={0}
+              index={1}
               className="col-span-1 md:col-span-2 row-span-1"
               onClick={() => setSelectedId("bankiiswap")}
             />
           )}
 
-          {/* 2. Gramacot (Mobile 1-col) */}
+          {/* ROW 2 */}
+
+          {/* 3. Gramacot (Mobile 1-col) */}
           {getProject("gramacot") && (
             <ProjectCard
               project={getProject("gramacot")!}
-              index={1}
+              index={2}
               className="col-span-1 row-span-1"
               onClick={() => setSelectedId("gramacot")}
             />
           )}
 
-          {/* 3. Ethovia (Mobile 1-col) */}
+          {/* 4. Ethovia (Mobile 1-col) */}
           {getProject("ethovia") && (
             <ProjectCard
               project={getProject("ethovia")!}
-              index={2}
+              index={3}
               className="col-span-1 row-span-1"
               onClick={() => setSelectedId("ethovia")}
             />
           )}
 
-          {/* ROW 2 */}
-
-          {/* 4. New Era (Mobile 1-col) */}
+          {/* 5. New Era (Mobile 1-col) */}
           {getProject("new-era") && (
             <ProjectCard
               project={getProject("new-era")!}
-              index={3}
+              index={4}
               className="col-span-1 row-span-1"
               onClick={() => setSelectedId("new-era")}
             />
           )}
 
-          {/* 5. CTA Card (1-col) */}
+          {/* 6. CTA Card (1-col) */}
           <div
-            className="col-span-1 row-span-1 relative group cursor-pointer order-last md:order-none"
+            className="col-span-1 row-span-1 relative group cursor-pointer"
             onClick={openContact}
           >
             <div className="absolute inset-0 rounded-3xl bg-zinc-900/40 border border-white/5 flex flex-col items-center justify-center p-8 transition-all duration-300 group-hover:bg-zinc-900/60 group-hover:border-white/10">
@@ -86,34 +96,36 @@ export default function WorkPageClient() {
             </div>
           </div>
 
-          {/* 6. Sophex (Desktop 2-col) */}
+          {/* ROW 3 */}
+
+          {/* 7. Sophex (Desktop 2-col) */}
           {getProject("sophex") && (
             <ProjectCard
               project={getProject("sophex")!}
-              index={4}
+              index={5}
               className="col-span-1 md:col-span-2 row-span-1"
               onClick={() => setSelectedId("sophex")}
             />
           )}
 
-          {/* ROW 3 */}
-
-          {/* 7. GlobNFTs (Desktop 2-col) */}
+          {/* 8. GlobNFTs (Desktop 2-col) */}
           {getProject("globnfts") && (
             <ProjectCard
               project={getProject("globnfts")!}
-              index={5}
+              index={6}
               className="col-span-1 md:col-span-2 row-span-1"
               onClick={() => setSelectedId("globnfts")}
             />
           )}
 
-          {/* 8. Saver AI (Desktop 2-col) */}
+          {/* ROW 4 - Centered */}
+
+          {/* 9. Saver AI (Desktop 2-col, centered) */}
           {getProject("saver-ai") && (
             <ProjectCard
               project={getProject("saver-ai")!}
-              index={6}
-              className="col-span-1 md:col-span-2 row-span-1"
+              index={7}
+              className="col-span-1 md:col-start-2 md:col-span-2 row-span-1"
               onClick={() => setSelectedId("saver-ai")}
             />
           )}

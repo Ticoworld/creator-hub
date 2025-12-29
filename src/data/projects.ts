@@ -25,6 +25,23 @@ export interface Project {
 export const PROJECTS: Project[] = [
   // Desktop Projects
   {
+    id: "legallease",
+    title: "Ogodo & Co.",
+    type: "desktop",
+    image: "/images/desktop/legallease-1.png",
+    color: "#f59e0b",
+    brief:
+      "Built a legal property SaaS with AES-encrypted PII and auto-generated Nigerian legal documents. 600+ line Prisma schema.",
+    description:
+      "A full-stack property management system for Nigerian legal practitioners. Features automated PDF generation for tenancy agreements and legal notices, encrypted storage of sensitive client data (BVN/NIN), and a comprehensive financial ledger with role-based access control and immutable audit logs.",
+    stack: ["Next.js", "Prisma", "Supabase", "React-PDF"],
+    detailImages: {
+      hero: "/images/projects/legallease/hero.png",
+      feature1: "/images/projects/legallease/feature-1.png",
+      feature2: "/images/projects/legallease/feature-2.png",
+    },
+  },
+  {
     id: "bankiiswap",
     title: "BankiiSwap",
     type: "desktop",
