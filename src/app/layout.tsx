@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://tico.dev"),
+  metadataBase: new URL("https://timothychinecheremorichi.vercel.app"),
   title: "Timothy Chinecherem | Digital Architect",
   description:
     "Building products that blend beautiful design with solid engineering. Full-stack developer focused on premium experiences.",
