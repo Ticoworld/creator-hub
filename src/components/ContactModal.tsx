@@ -7,7 +7,7 @@ import { SiX, SiGithub, SiLinkedin } from "react-icons/si";
 import { useContactModal } from "@/hooks/use-contact-modal";
 import { cn } from "@/lib/utils";
 
-const EMAIL = "hello@tico.dev"; // Replace with your actual email
+const EMAIL = "orichitimothychinecherem@gmail.com";
 
 export default function ContactModal() {
   const { isOpen, onClose } = useContactModal();
