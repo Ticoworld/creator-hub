@@ -35,14 +35,14 @@ export default function ProjectCard({
           "relative w-full h-full overflow-hidden rounded-3xl bg-zinc-950",
           "border border-white/[0.08]",
           "transition-[border-color] duration-200",
-          "group-hover:border-white/20"
+          "group-hover:border-white/20",
         )}
       >
         {/* Static Shadow - No animation */}
         <div
           className={cn(
             "absolute left-1/2 -translate-x-1/2 rounded-[100%] bg-black/40 blur-xl",
-            isDesktop ? "bottom-10 w-[70%] h-3" : "bottom-16 w-[60%] h-2"
+            isDesktop ? "bottom-10 w-[70%] h-3" : "bottom-16 w-[60%] h-2",
           )}
         />
 
@@ -53,7 +53,7 @@ export default function ProjectCard({
             "transition-transform duration-200 ease-out",
             isDesktop
               ? "group-hover:-translate-y-4"
-              : "group-hover:-translate-y-1.5"
+              : "group-hover:-translate-y-1.5",
           )}
         >
           <Image
@@ -64,7 +64,7 @@ export default function ProjectCard({
               "object-cover",
               isDesktop && "scale-100",
               !isDesktop &&
-                "rotate-[-24deg] translate-y-[30%] translate-x-[25%] scale-[1.35]"
+                "rotate-[-24deg] translate-y-[30%] translate-x-[25%] scale-[1.35]",
             )}
             priority={index < 4}
             sizes="(max-width: 768px) 100vw, 50vw"
@@ -80,22 +80,22 @@ export default function ProjectCard({
             "py-3 pl-3 border border-white/10",
             "transition-[max-width,padding,border-color] duration-200 ease-out",
             "max-w-[3rem] pr-3",
-            "group-hover:max-w-[20rem] group-hover:pr-4 group-hover:border-white/30"
+            "group-hover:max-w-[20rem] group-hover:pr-4 group-hover:border-white/30",
           )}
         >
+          {/* Arrow Icon */}
+          <ArrowUpRight className="w-5 h-5 text-white flex-shrink-0" />
+
           {/* Text */}
           <span
             className={cn(
               "text-white text-sm font-medium whitespace-nowrap",
               "opacity-0 transition-opacity duration-200",
-              "group-hover:opacity-100"
+              "group-hover:opacity-100",
             )}
           >
             {project.title}
           </span>
-
-          {/* Arrow Icon */}
-          <ArrowUpRight className="w-5 h-5 text-white flex-shrink-0" />
         </div>
 
         {/* Ambient Glow */}
@@ -103,7 +103,7 @@ export default function ProjectCard({
           className={cn(
             "absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none",
             "opacity-0 transition-opacity duration-200",
-            "group-hover:opacity-100"
+            "group-hover:opacity-100",
           )}
         />
       </div>
