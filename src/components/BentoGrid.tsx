@@ -18,7 +18,7 @@ import { LiveTime } from "./ui/LiveTime";
 import { cn } from "@/lib/utils";
 import { useContactModal } from "@/hooks/use-contact-modal";
 
-// Tooltip component for tech stack icons
+// Tooltip component for tech stack icons with accessibility
 function TechIcon({
   icon: Icon,
   name,
@@ -35,6 +35,8 @@ function TechIcon({
       className="relative"
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      role="img"
+      aria-label={`${name} - part of my tech stack`}
     >
       <AnimatePresence>
         {isHovered && (
@@ -44,6 +46,8 @@ function TechIcon({
             exit={{ opacity: 0, y: 8 }}
             transition={{ duration: 0.15 }}
             className="absolute -top-8 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-md bg-zinc-800 px-2 py-1 text-xs text-white shadow-lg"
+            role="tooltip"
+            id={`tooltip-${name.toLowerCase().replace(/\s+/g, "-")}`}
           >
             {name}
           </motion.span>
@@ -54,6 +58,7 @@ function TechIcon({
           "h-6 w-6 transition-colors duration-200",
           isHovered ? hoverColor : "text-zinc-400"
         )}
+        aria-hidden="true"
       />
     </div>
   );
@@ -133,30 +138,36 @@ export default function BentoGrid() {
               <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
                 Connect
               </span>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4" role="list" aria-label="Social media links">
                 <a
                   href="https://x.com/Timothy_Neche"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 transition-colors hover:text-white"
+                  aria-label="Follow me on X (formerly Twitter)"
+                  role="listitem"
                 >
-                  <SiX className="h-5 w-5" />
+                  <SiX className="h-5 w-5" aria-hidden="true" />
                 </a>
                 <a
                   href="https://github.com/ticoworld"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 transition-colors hover:text-white"
+                  aria-label="View my GitHub profile"
+                  role="listitem"
                 >
-                  <Github className="h-5 w-5" />
+                  <Github className="h-5 w-5" aria-hidden="true" />
                 </a>
                 <a
                   href="https://www.linkedin.com/in/timothy-chinecherem"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-zinc-400 transition-colors hover:text-white"
+                  aria-label="Connect with me on LinkedIn"
+                  role="listitem"
                 >
-                  <Linkedin className="h-5 w-5" />
+                  <Linkedin className="h-5 w-5" aria-hidden="true" />
                 </a>
               </div>
             </div>
@@ -165,10 +176,10 @@ export default function BentoGrid() {
           {/* Card 4: Stack (1x1) - BRAND ICONS with Tooltips */}
           <BentoCard className="bg-zinc-900/50">
             <div className="flex h-full flex-col items-center justify-center gap-4">
-              <span className="text-xs font-medium uppercase tracking-wider text-zinc-500">
+              <span className="text-xs font-medium uppercase tracking-wider text-zinc-500" id="stack-heading">
                 Stack
               </span>
-              <div className="flex items-center gap-4">
+              <div className="flex items-center gap-4" role="list" aria-labelledby="stack-heading">
                 <TechIcon
                   icon={SiNextdotjs}
                   name="Next.js"
@@ -277,9 +288,10 @@ export default function BentoGrid() {
                   "text-sm font-medium text-zinc-950 transition-all duration-200",
                   "hover:bg-zinc-100"
                 )}
+                aria-label="Open contact form to get in touch"
               >
                 Get in touch
-                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
+                <ArrowUpRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" aria-hidden="true" />
               </button>
             </div>
           </BentoCard>

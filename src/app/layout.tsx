@@ -45,6 +45,45 @@ export const metadata: Metadata = {
   },
 };
 
+// JSON-LD Structured Data for enhanced SEO
+const personSchema = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Timothy Chinecherem",
+  url: "https://www.timothychinecherem.com",
+  image: "https://www.timothychinecherem.com/images/avatar.jpg",
+  jobTitle: "Full-Stack Developer",
+  description:
+    "Building products that blend beautiful design with solid engineering. Full-stack developer focused on premium experiences.",
+  sameAs: [
+    "https://x.com/Timothy_Neche",
+    "https://github.com/ticoworld",
+    "https://www.linkedin.com/in/timothy-chinecherem",
+  ],
+  knowsAbout: [
+    "Next.js",
+    "TypeScript",
+    "React",
+    "Tailwind CSS",
+    "Supabase",
+    "Full-Stack Development",
+    "UI/UX Design",
+  ],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Timothy Chinecherem | Digital Architect",
+  url: "https://www.timothychinecherem.com",
+  description:
+    "Portfolio of Timothy Chinecherem - Full-stack developer building premium digital experiences.",
+  author: {
+    "@type": "Person",
+    name: "Timothy Chinecherem",
+  },
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -52,6 +91,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="dark scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(personSchema),
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(websiteSchema),
+          }}
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} bg-[#050505] font-sans antialiased`}
       >
