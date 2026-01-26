@@ -33,7 +33,7 @@ export const PROJECTS: Project[] = [
     brief:
       "Built a legal property SaaS with AES-encrypted PII and auto-generated Nigerian legal documents. 600+ line Prisma schema.",
     description:
-      "A full-stack property management system for Nigerian legal practitioners. Features automated PDF generation for tenancy agreements and legal notices, encrypted storage of sensitive client data (BVN/NIN), and a comprehensive financial ledger with role-based access control and immutable audit logs.",
+      "An enterprise property management system for Nigerian legal practitioners featuring Role-Based Access Control (RBAC), Automated PDF Generation, and Audit Logging. Engineered to scale to 10,000+ monthly transactions with AES-256 encryption for sensitive client data (BVN/NIN).",
     stack: ["Next.js", "Prisma", "Supabase", "React-PDF"],
     detailImages: {
       hero: "/images/projects/legallease/hero.png",
@@ -158,9 +158,9 @@ export const PROJECTS: Project[] = [
     liveUrl: "https://neweraprints.vercel.app",
     color: "#f97316",
     brief:
-      "Built a premium e-commerce printing platform with real-time quote generation. Custom product configurator with instant pricing.",
+      "Architected a premium e-commerce platform with Real-Time Quote Generation and Dynamic Pricing Engine. Optimized for high-concurrency order processing.",
     description:
-      "Custom printing services platform featuring t-shirts, business cards, and banners with dynamic pricing, cart management, and seamless checkout flow.",
+      "Custom printing services platform featuring t-shirts, business cards, and banners with dynamic pricing engine, cart management, and seamless checkout flow optimized for high-volume order processing.",
     stack: ["React", "Vite", "Tailwind", "Framer Motion"],
     detailImages: {
       hero: "/images/projects/newera/hero.png",

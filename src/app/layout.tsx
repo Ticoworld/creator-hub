@@ -18,11 +18,11 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://www.timothychinecherem.com"),
   title: "Timothy Chinecherem | Digital Architect",
   description:
-    "Building products that blend beautiful design with solid engineering. Full-stack developer focused on premium experiences.",
+    "Architecting high-performance frontend systems with 99.9% uptime. Specializing in real-time data architectures, sub-100ms latency optimization, and enterprise-scale Next.js applications.",
   openGraph: {
     title: "Timothy Chinecherem | Digital Architect",
     description:
-      "Building products that blend beautiful design with solid engineering.",
+      "Architecting high-performance frontend systems with 99.9% uptime. Specializing in real-time data architectures and enterprise-scale Next.js applications.",
     url: "https://www.timothychinecherem.com",
     siteName: "Timothy Chinecherem",
     images: [
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Timothy Chinecherem",
     description:
-      "Building products that blend beautiful design with solid engineering.",
+      "Architecting high-performance frontend systems with 99.9% uptime. Specializing in real-time data architectures and enterprise-scale Next.js applications.",
     images: ["/images/avatar.jpg"],
   },
 };
@@ -52,9 +52,9 @@ const personSchema = {
   name: "Timothy Chinecherem",
   url: "https://www.timothychinecherem.com",
   image: "https://www.timothychinecherem.com/images/avatar.jpg",
-  jobTitle: "Full-Stack Developer",
+  jobTitle: "Senior Frontend Systems Architect",
   description:
-    "Building products that blend beautiful design with solid engineering. Full-stack developer focused on premium experiences.",
+    "Architecting high-performance frontend systems with 99.9% uptime. Specializing in real-time data architectures, sub-100ms latency optimization, and enterprise-scale Next.js applications.",
   sameAs: [
     "https://x.com/Timothy_Neche",
     "https://github.com/ticoworld",
@@ -66,8 +66,9 @@ const personSchema = {
     "React",
     "Tailwind CSS",
     "Supabase",
-    "Full-Stack Development",
-    "UI/UX Design",
+    "Frontend Systems Architecture",
+    "Real-Time Systems",
+    "Performance Optimization",
   ],
 };
 
@@ -77,7 +78,7 @@ const websiteSchema = {
   name: "Timothy Chinecherem | Digital Architect",
   url: "https://www.timothychinecherem.com",
   description:
-    "Portfolio of Timothy Chinecherem - Full-stack developer building premium digital experiences.",
+    "Portfolio of Timothy Chinecherem - Senior Frontend Systems Architect specializing in high-performance Next.js, real-time Solana trading engines, and enterprise dashboards.",
   author: {
     "@type": "Person",
     name: "Timothy Chinecherem",

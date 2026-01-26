@@ -111,12 +111,13 @@ export default function BentoGrid() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
                 >
-                  Fullstack Developer
+                  Senior Frontend Systems Architect
                 </motion.p>
               </div>
               <p className="max-w-sm text-sm leading-relaxed text-zinc-500">
-                Building products that blend beautiful design with solid
-                engineering. Focused on creating experiences people love.
+                Specializing in High-Performance Next.js Systems. I architect
+                lag-free Trading Engines (Solana) and Enterprise Dashboards that
+                handle real-time data at scale.
               </p>
             </div>
           </BentoCard>

@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect, useCallback } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -20,17 +20,43 @@ export default function BentoCard({
   mobileRowSpan,
 }: BentoCardProps) {
   const cardRef = useRef<HTMLDivElement>(null);
+  const frameRef = useRef<number>(0);
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [isHovered, setIsHovered] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!cardRef.current) return;
-    const rect = cardRef.current.getBoundingClientRect();
-    setMousePosition({
-      x: e.clientX - rect.left,
-      y: e.clientY - rect.top,
+  // Detect mobile/touch devices
+  useEffect(() => {
+    const checkMobile = () => {
+      setIsMobile(
+        window.innerWidth < 768 || 
+        'ontouchstart' in window ||
+        navigator.maxTouchPoints > 0
+      );
+    };
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+
+  // Throttled mouse move handler using requestAnimationFrame (60fps)
+  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current || isMobile) return;
+    
+    cancelAnimationFrame(frameRef.current);
+    frameRef.current = requestAnimationFrame(() => {
+      const rect = cardRef.current!.getBoundingClientRect();
+      setMousePosition({
+        x: e.clientX - rect.left,
+        y: e.clientY - rect.top,
+      });
     });
-  };
+  }, [isMobile]);
+
+  // Cleanup on unmount
+  useEffect(() => {
+    return () => cancelAnimationFrame(frameRef.current);
+  }, []);
 
   const colSpanClass = colSpan === 2 ? "md:col-span-2" : "col-span-1";
 
@@ -65,34 +91,38 @@ export default function BentoCard({
         rowSpanClass,
         className
       )}
-      onMouseMove={handleMouseMove}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
+      onMouseMove={isMobile ? undefined : handleMouseMove}
+      onMouseEnter={isMobile ? undefined : () => setIsHovered(true)}
+      onMouseLeave={isMobile ? undefined : () => setIsHovered(false)}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4 }}
     >
-      {/* Spotlight effect on hover - visible */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 40%)`,
-        }}
-      />
+      {/* Spotlight effect on hover - desktop only */}
+      {!isMobile && (
+        <div
+          className="pointer-events-none absolute inset-0 z-0 transition-opacity duration-500"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            background: `radial-gradient(600px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.06), transparent 40%)`,
+          }}
+        />
+      )}
 
-      {/* Glowing border effect - stronger white/20 */}
-      <div
-        className="pointer-events-none absolute inset-0 z-0 rounded-3xl transition-opacity duration-500"
-        style={{
-          opacity: isHovered ? 1 : 0,
-          background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.2), transparent 40%)`,
-          mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
-          maskComposite: "xor",
-          WebkitMaskComposite: "xor",
-          padding: "1px",
-        }}
-      />
+      {/* Glowing border effect - desktop only */}
+      {!isMobile && (
+        <div
+          className="pointer-events-none absolute inset-0 z-0 rounded-3xl transition-opacity duration-500"
+          style={{
+            opacity: isHovered ? 1 : 0,
+            background: `radial-gradient(400px circle at ${mousePosition.x}px ${mousePosition.y}px, rgba(255,255,255,0.2), transparent 40%)`,
+            mask: "linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)",
+            maskComposite: "xor",
+            WebkitMaskComposite: "xor",
+            padding: "1px",
+          }}
+        />
+      )}
 
       {/* Card content */}
       <div className="relative z-10 h-full">{children}</div>

@@ -46,14 +46,15 @@ export default function ProjectCard({
           )}
         />
 
-        {/* The Image Container - Simple GPU-friendly transform */}
+        {/* The Image Container - GPU-accelerated with composite layer */}
         <div
           className={cn(
             "absolute inset-0 w-full h-full",
-            "transition-transform duration-200 ease-out",
+            "transition-transform duration-300 ease-out",
+            "will-change-transform transform-gpu",
             isDesktop
               ? "group-hover:-translate-y-4"
-              : "group-hover:-translate-y-1.5",
+              : "group-hover:-translate-y-2",
           )}
         >
           <Image
@@ -61,7 +62,7 @@ export default function ProjectCard({
             alt={project.title}
             fill
             className={cn(
-              "object-cover",
+              "object-cover transform-gpu",
               isDesktop && "scale-100",
               !isDesktop &&
                 "rotate-[-24deg] translate-y-[30%] translate-x-[25%] scale-[1.35]",
@@ -71,27 +72,30 @@ export default function ProjectCard({
           />
         </div>
 
-        {/* The Smart Pill - Specific transitions only */}
+        {/* The Smart Pill - Perfect circle that expands */}
         <div
           className={cn(
             "absolute bottom-6 left-6 z-20",
-            "flex items-center gap-2 overflow-hidden",
-            "bg-black/70 rounded-full",
-            "py-3 pl-3 border border-white/10",
-            "transition-[max-width,padding,border-color] duration-200 ease-out",
-            "max-w-[3rem] pr-3",
-            "group-hover:max-w-[20rem] group-hover:pr-4 group-hover:border-white/30",
+            "flex items-center gap-0 group-hover:gap-2",
+            "bg-black/70 rounded-full backdrop-blur-sm",
+            "h-11 w-11 group-hover:w-auto",
+            "border border-white/10",
+            "transition-[width,gap,border-color,padding] duration-300 ease-out",
+            "will-change-transform",
+            "group-hover:border-white/30 group-hover:pl-3 group-hover:pr-4",
+            "justify-center group-hover:justify-start"
           )}
         >
           {/* Arrow Icon */}
           <ArrowUpRight className="w-5 h-5 text-white flex-shrink-0" />
 
-          {/* Text */}
+          {/* Text - fades in */}
           <span
             className={cn(
               "text-white text-sm font-medium whitespace-nowrap",
-              "opacity-0 transition-opacity duration-200",
-              "group-hover:opacity-100",
+              "max-w-0 opacity-0 overflow-hidden",
+              "transition-[max-width,opacity] duration-300 ease-out",
+              "group-hover:max-w-xs group-hover:opacity-100",
             )}
           >
             {project.title}

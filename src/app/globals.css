@@ -40,3 +40,9 @@ body {
   background: rgba(255, 255, 255, 0.1);
   color: #fafafa;
 }
+
+/* Modal scroll lock - prevents background scroll without layout reflows */
+body.modal-open {
+  overflow: hidden;
+  overflow-x: hidden;
+}

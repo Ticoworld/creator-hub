@@ -49,8 +49,8 @@ export default function Hero() {
           transition={{ duration: 0.5, delay: 0.2 }}
           className="mb-10 text-lg leading-relaxed text-zinc-400 md:text-xl"
         >
-          Full-Stack Developer & Creator. I build accessible, pixel-perfect
-          digital experiences.
+          Senior Frontend Systems Architect. Specializing in high-performance
+          Next.js systems with sub-100ms response times and 99.9% uptime SLAs.
         </motion.p>
 
         {/* Action buttons */}

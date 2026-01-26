@@ -42,18 +42,18 @@ export default function ContactModal() {
     }
   }, []);
 
-  // Close on ESC key
+  // Close on ESC key and lock body scroll
   useEffect(() => {
     const handleEsc = (e: KeyboardEvent) => {
       if (e.key === "Escape") onClose();
     };
     if (isOpen) {
       document.addEventListener("keydown", handleEsc);
-      document.body.style.overflow = "hidden";
+      document.body.classList.add('modal-open');
     }
     return () => {
       document.removeEventListener("keydown", handleEsc);
-      document.body.style.overflow = "";
+      document.body.classList.remove('modal-open');
     };
   }, [isOpen, onClose]);
 
