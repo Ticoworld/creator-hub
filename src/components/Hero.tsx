@@ -21,11 +21,11 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
-          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md"
+          className="mb-8 inline-flex items-center gap-2 rounded-full border border-white/10 bg-zinc-900/50 px-4 py-2 backdrop-blur-md shadow-lg shadow-emerald-500/5 transition-all duration-300 hover:border-emerald-500/30 hover:shadow-emerald-500/10 hover:-translate-y-0.5 hover:scale-[1.02] cursor-default"
         >
           <span className="relative flex h-2 w-2">
-            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
+            <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75 duration-1000" />
+            <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500 shadow-sm shadow-emerald-500/50" />
           </span>
           <span className="text-sm font-medium text-zinc-300">
             Available for work
@@ -64,8 +64,10 @@ export default function Hero() {
           <button
             onClick={onOpen}
             className={cn(
-              "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-medium text-zinc-950 transition-all duration-200",
-              "hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-white/20 focus:ring-offset-2 focus:ring-offset-zinc-950"
+              "group inline-flex h-12 items-center justify-center gap-2 rounded-full bg-white px-6 font-medium text-zinc-950",
+              "transition-all duration-200",
+              "hover:shadow-lg hover:shadow-white/10 hover:scale-[1.02]",
+              "btn-active focus-ring"
             )}
           >
             <Mail className="h-4 w-4" />
@@ -76,8 +78,10 @@ export default function Hero() {
           {/* Secondary button */}
           <button
             className={cn(
-              "inline-flex h-12 items-center justify-center gap-2 rounded-full border border-zinc-800 bg-transparent px-6 font-medium text-zinc-100 transition-all duration-200",
-              "hover:bg-zinc-900 focus:outline-none focus:ring-2 focus:ring-white/10 focus:ring-offset-2 focus:ring-offset-zinc-950"
+              "inline-flex h-12 items-center justify-center gap-2 rounded-full border border-zinc-800 bg-transparent px-6 font-medium text-zinc-100",
+              "transition-all duration-200",
+              "hover:bg-zinc-900 hover:border-zinc-700 hover:scale-[1.02]",
+              "btn-active focus-ring"
             )}
           >
             View my work

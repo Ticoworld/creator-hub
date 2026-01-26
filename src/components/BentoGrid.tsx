@@ -144,7 +144,7 @@ export default function BentoGrid() {
                   href="https://x.com/Timothy_Neche"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 transition-colors hover:text-white"
+                  className="text-zinc-400 transition-all duration-200 hover:text-white hover:scale-110 focus-ring-inset rounded-md p-1"
                   aria-label="Follow me on X (formerly Twitter)"
                   role="listitem"
                 >
@@ -154,7 +154,7 @@ export default function BentoGrid() {
                   href="https://github.com/ticoworld"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 transition-colors hover:text-white"
+                  className="text-zinc-400 transition-all duration-200 hover:text-white hover:scale-110 focus-ring-inset rounded-md p-1"
                   aria-label="View my GitHub profile"
                   role="listitem"
                 >
@@ -164,7 +164,7 @@ export default function BentoGrid() {
                   href="https://www.linkedin.com/in/timothy-chinecherem"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-zinc-400 transition-colors hover:text-white"
+                  className="text-zinc-400 transition-all duration-200 hover:text-white hover:scale-110 focus-ring-inset rounded-md p-1"
                   aria-label="Connect with me on LinkedIn"
                   role="listitem"
                 >
@@ -287,7 +287,8 @@ export default function BentoGrid() {
                 className={cn(
                   "group inline-flex items-center gap-2 rounded-xl bg-white px-5 py-2.5",
                   "text-sm font-medium text-zinc-950 transition-all duration-200",
-                  "hover:bg-zinc-100"
+                  "hover:bg-zinc-100 hover:shadow-lg hover:shadow-white/5 hover:scale-[1.02]",
+                  "btn-active focus-ring"
                 )}
                 aria-label="Open contact form to get in touch"
               >

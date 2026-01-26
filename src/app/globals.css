@@ -46,3 +46,24 @@ body.modal-open {
   overflow: hidden;
   overflow-x: hidden;
 }
+
+/* Enhanced Focus States - WCAG 2.1 Compliant */
+@layer utilities {
+  .focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-zinc-950;
+  }
+
+  .focus-ring-inset {
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-inset focus-visible:ring-white/30;
+  }
+
+  /* Tactile button feedback */
+  .btn-active {
+    @apply active:scale-[0.97] active:transition-transform active:duration-75;
+  }
+
+  /* Smooth hover lift for interactive cards */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:scale-[1.02] hover:-translate-y-0.5;
+  }
+}
