@@ -103,7 +103,7 @@ body.modal-open {
 
   /* Skeleton loading shimmer effect */
   .skeleton {
-    @apply bg-zinc-800/50 animate-pulse;
+    @apply bg-zinc-800/50;
     background: linear-gradient(
       90deg,
       rgba(39, 39, 42, 0.5) 0%,
@@ -112,6 +112,7 @@ body.modal-open {
     );
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite;
+    will-change: background-position;
   }
 
   @keyframes shimmer {
