@@ -46,6 +46,19 @@ body {
   transition: outline-offset 0.2s ease, box-shadow 0.2s ease;
 }
 
+/* Improved link hover states */
+a {
+  @apply transition-colors duration-200;
+}
+
+a:hover {
+  @apply text-white/90;
+}
+
+a:focus-visible {
+  @apply outline-none ring-2 ring-white/30 ring-offset-2 ring-offset-zinc-950;
+}
+
 /* Modal scroll lock - prevents background scroll without layout reflows */
 body.modal-open {
   overflow: hidden;
