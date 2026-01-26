@@ -75,9 +75,17 @@ body.modal-open {
   /* Enhanced button states with haptic feedback */
   .btn-primary {
     @apply transition-all duration-200 ease-out;
-    @apply hover:brightness-110 hover:shadow-lg;
+    @apply hover:brightness-110 hover:shadow-lg hover:scale-[1.02];
     @apply active:scale-95 active:brightness-95;
     @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30;
+  }
+  
+  /* Secondary button variant */
+  .btn-secondary {
+    @apply transition-all duration-200 ease-out;
+    @apply hover:bg-white/5 hover:border-white/20;
+    @apply active:scale-98;
+    @apply focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/20;
   }
 
   /* Skeleton loading shimmer effect */
