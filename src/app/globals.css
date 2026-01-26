@@ -41,6 +41,11 @@ body {
   color: #fafafa;
 }
 
+/* Smooth focus transitions for better accessibility */
+*:focus-visible {
+  transition: outline-offset 0.2s ease, box-shadow 0.2s ease;
+}
+
 /* Modal scroll lock - prevents background scroll without layout reflows */
 body.modal-open {
   overflow: hidden;
